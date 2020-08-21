@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func main() {
@@ -27,4 +28,14 @@ func main() {
 	something = "I am a pointer now"
 	fmt.Println(*ptr, ptr)
 
+	//function call
+	fmt.Println(split(18))
+	fmt.Println(math.Pi)
+
+}
+
+func split(sum int) (x, y int) {
+	x = sum * 4 / 9
+	y = sum - x
+	return
 }
