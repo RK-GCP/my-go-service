@@ -30,7 +30,7 @@ func main() {
 
 	//function call
 	fmt.Println(split(18))
-	fmt.Println(math.Pi)
+	fmt.Println(getPi())
 
 }
 
@@ -38,4 +38,8 @@ func split(sum int) (x, y int) {
 	x = sum * 4 / 9
 	y = sum - x
 	return
+}
+
+func getPi() float32 {
+	return math.Pi
 }
