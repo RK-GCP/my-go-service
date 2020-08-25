@@ -1,15 +1,49 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"math"
+	"net/http"
 
+	"github.com/RK-GCP/my-go-service/controllers"
 	"github.com/RK-GCP/my-go-service/models"
 )
 
 func main() {
+	controllers.RegisterControllers()
+	http.ListenAndServe(":3000", nil)
+
+}
+
+func manything2() {
 	fmt.Println("Hello World")
 
+	ec, err := startwebserver(3000)
+
+	fmt.Println(ec, err)
+
+	//if only need one piece of data from func data return use underscore for data not interested
+
+	_, err2 := startwebserver(9000)
+	fmt.Println("Single Value: ", err2)
+
+	manything()
+}
+
+func startwebserver(port int) (int, error) {
+
+	fmt.Println("Starting web server...")
+	//code to start a web server.handler
+	fmt.Println("web server started at port: ", port)
+	er := errors.New("Not implemented")
+	errorcode := 501
+	return errorcode, er
+
+}
+
+func manything() {
+	fmt.Println("******* MANY THINGS *********")
 	tRate := 4.75
 	fmt.Println("Current rate", tRate)
 
@@ -68,7 +102,6 @@ func main() {
 	}
 
 	fmt.Println(u)
-
 }
 
 func split(sum int) (x, y int) {
