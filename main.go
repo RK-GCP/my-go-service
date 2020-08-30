@@ -12,7 +12,6 @@ import (
 )
 
 func main() {
-	TryASwitch()
 	controllers.RegisterControllers()
 	http.ListenAndServe(":3000", nil)
 
@@ -164,10 +163,11 @@ type HTTPRequest struct {
 
 //TryASwitch - Example
 func TryASwitch() {
-	r := HTTPRequest{Method: "HEAD"}
+	r := HTTPRequest{Method: "GET"}
 	switch r.Method {
 	case "GET":
 		fmt.Println("We got GET")
+		//fallthrough //continues to the next statement - not sure what is use case
 	case "PUT":
 		fmt.Println("we got PUT")
 	default:
