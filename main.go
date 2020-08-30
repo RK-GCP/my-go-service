@@ -12,6 +12,7 @@ import (
 )
 
 func main() {
+	TryASwitch()
 	controllers.RegisterControllers()
 	http.ListenAndServe(":3000", nil)
 
@@ -154,4 +155,22 @@ func split(sum int) (x, y int) {
 
 func getPi() float32 {
 	return math.Pi
+}
+
+//HTTPRequest type
+type HTTPRequest struct {
+	Method string
+}
+
+//TryASwitch - Example
+func TryASwitch() {
+	r := HTTPRequest{Method: "HEAD"}
+	switch r.Method {
+	case "GET":
+		fmt.Println("We got GET")
+	case "PUT":
+		fmt.Println("we got PUT")
+	default:
+		fmt.Println("we have somthing using default")
+	}
 }
