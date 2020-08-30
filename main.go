@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math"
 	"net/http"
+	"os"
 
 	"github.com/RK-GCP/my-go-service/controllers"
 	"github.com/RK-GCP/my-go-service/models"
@@ -13,6 +14,47 @@ import (
 func main() {
 	controllers.RegisterControllers()
 	http.ListenAndServe(":3000", nil)
+
+}
+
+//TryPanic - example
+func TryPanic() {
+	_, err := startwebserver(8200)
+	if err != nil {
+		_, errFile := os.Create("/tmp/file.txt")
+		panic(errFile)
+	}
+
+}
+
+//TryingLoops -Example
+func TryingLoops() {
+	//simple for loop
+	s := []int{11, 21, 39}
+	for i := 0; i < len(s); i++ {
+		fmt.Println("Simple Loop: ", s[i])
+	}
+
+	//go way using indexer and value - works for slice, array, and map
+	for i, v := range s {
+		fmt.Println("Index Value Loop: ", i, v)
+	}
+
+	tp := map[string]int{"http": 80, "https": 443}
+	//Value Only
+	for _, val := range tp {
+		fmt.Println("Value only: ", val)
+	}
+
+	//Keys only
+	for k := range tp {
+		fmt.Println("key only: ", k)
+	}
+
+	//both Key and Value
+	for k, v := range tp {
+		fmt.Println(k, ":", v)
+	}
 
 }
 
