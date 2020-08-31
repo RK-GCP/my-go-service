@@ -94,7 +94,7 @@ func (uc *userController) put(id int, w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	u, err := models.AddUser(uReq)
+	u, err := models.UpdateUser(uReq)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		w.Write([]byte(err.Error()))
