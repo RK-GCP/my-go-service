@@ -7,9 +7,9 @@ import (
 
 //User type
 type User struct {
-	ID        int
-	FirstName string
-	LastName  string
+	ID        int    `json:"ID"`
+	FirstName string `json:"FirstName"`
+	LastName  string `json:"LastName"`
 }
 
 var (
